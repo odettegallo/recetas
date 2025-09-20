@@ -1,13 +1,16 @@
 <template>
   <div id="app">
     <Navbar />
-    <transition name="fade" mode="out-in">
-      <router-view/>
-    </transition>
+    <router-view v-slot="{ Component }">
+  <transition>
+    <component :is="Component" />
+  </transition>
+</router-view>
   </div>
 </template>
 
 <script>
+
 import Navbar from './components/Navbar.vue';
 
 export default {
