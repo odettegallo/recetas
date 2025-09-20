@@ -1,5 +1,6 @@
 <template>
   <nav class="navbar">
+    <router-link to="/">Recetas Caseras</router-link>
     <router-link to="/">Inicio</router-link>
     <router-link to="/categorias">Categorías</router-link>
     <router-link to="/receta/123">Receta de Prueba</router-link>
