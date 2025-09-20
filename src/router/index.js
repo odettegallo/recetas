@@ -16,11 +16,11 @@ const routes = [
     component: Categorias,
     children: [
       {
-        path: 'postres',
+        path: '/subcategorias/postres',
         component: () => import('../views/subcategorias/Postres.vue')
       },
       {
-        path: 'bebidas',
+        path: '/subcategorias/bebidas',
         component: () => import('../views/subcategorias/Bebidas.vue')
       }
     ]
