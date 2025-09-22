@@ -17,7 +17,7 @@
             <router-link to="/receta/123" class="nav-link">Receta de Prueba</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/autor/Juan_Perez" class="nav-link">Perfil de Autor</router-link>
+            <router-link to="/autor/Juan Perez" class="nav-link">Perfil de Autor</router-link>
           </li>
         </ul>
       </div>

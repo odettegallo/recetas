@@ -9,14 +9,24 @@
       <h2>Recetas Destacadas</h2>
       <div class="tarjetas-recetas">
         <div class="tarjeta-receta">
+          <h3>Pastel Clásico</h3>
+          <p>La receta perfecta para un tarde en familia.</p>
+          <router-link to="/receta/123" class="link-ver">Ver Receta</router-link>
+        </div>
+        <div class="tarjeta-receta">
+          <h3>Ensalada Fresca</h3>
+          <p>Una opción de almuerzo sin carbohidratos.</p>
+          <router-link to="/receta/456" class="link-ver">Ver Receta</router-link>
+        </div>
+        <div class="tarjeta-receta">
           <h3>Panqueques Clásicos</h3>
           <p>La receta perfecta para un desayuno delicioso y rápido.</p>
-          <router-link to="/receta/123" class="link-ver">Ver Receta</router-link>
+          <router-link to="/receta/678" class="link-ver">Ver Receta</router-link>
         </div>
         <div class="tarjeta-receta">
           <h3>Sopa de Tomate</h3>
           <p>Una sopa reconfortante para cualquier día.</p>
-          <router-link to="/receta/456" class="link-ver">Ver Receta</router-link>
+          <router-link to="/receta/910" class="link-ver">Ver Receta</router-link>
         </div>
       </div>
     </section>

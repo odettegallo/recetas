@@ -1,25 +1,24 @@
 <template>
   <div class="detalle-receta-container">
     <div v-if="receta" class="receta-card">
-      <h1 class="receta-titulo">{{ receta.titulo }}</h1>
-      <p class="receta-id">Receta con ID: {{ id }}</p>
-      
-      <div class="receta-seccion">
+      <header class="receta-header">
+        <h1 class="receta-titulo">{{ receta.titulo }}</h1>
+        <p class="receta-id">Receta con ID: {{ id }}</p>
+      </header>
+
+      <section class="receta-seccion">
         <h2 class="seccion-titulo">Ingredientes</h2>
         <ul class="ingredientes-lista">
           <li v-for="ingrediente in receta.ingredientes" :key="ingrediente">
             {{ ingrediente }}
           </li>
         </ul>
-      </div>
-      
-      <div class="receta-seccion">
+      </section>
+
+      <section class="receta-seccion">
         <h2 class="seccion-titulo">Preparación</h2>
-        <p class="preparacion-texto">
-          Aquí irían las instrucciones detalladas para preparar la receta. Por ejemplo:
-          Mezclar todos los ingredientes secos, luego agregar los líquidos. Mezclar bien hasta obtener una masa homogénea. Hornear a 180°C por 30 minutos.
-        </p>
-      </div>
+        <div class="preparacion-texto" v-html="formattedPreparacion"></div>
+      </section>
 
     </div>
     <div v-else class="receta-no-encontrada">
@@ -34,11 +33,36 @@ export default {
   data() {
     return {
       recetas: [
-        { id: '123', titulo: 'Receta de Pastel', ingredientes: ['harina', 'azúcar', 'huevos'] },
-        { id: '456', titulo: 'Receta de Ensalada', ingredientes: ['lechuga', 'tomate', 'pollo'] }
+        { id: '123', 
+        titulo: 'Receta de Pastel Clásico', 
+        ingredientes: ['harina', 'azúcar', 'huevos'], 
+        preparacion: 'Mezclar todos los ingredientes secos, luego agregar los líquidos. Mezclar bien hasta obtener una masa homogénea. Hornear a 180°C por 30 minutos.' },
+
+        { id: '456', 
+        titulo: 'Receta de Ensalada', 
+        ingredientes: ['lechuga', 'tomate', 'pollo'], 
+        preparacion: 'Cocer el pollo en agua hirviendo, escurrir y reservar. Lavar la lechuga y los tomates bajo la llave con agua fría y reservar. Cortar la lechuga con la mano y los tomates en trozos. Unir todos los ingredientes cortados y sazonar a gusto.' },
+        { 
+          id: '678', 
+          titulo: 'Panqueques Clásicos', 
+          ingredientes: ['harina', 'azúcar', 'huevos', 'leche', 'mantequilla'], 
+          preparacion: '1. En un bol grande, mezcla la harina, el azúcar, el polvo de hornear y la sal.\n2. En otro bol, bate la leche, los huevos y la mantequilla derretida.\n3. Vierte la mezcla líquida sobre la de los ingredientes secos y mezcla hasta que estén combinados, sin batir en exceso.\n4. Calienta una sartén antiadherente a fuego medio y vierte un poco de la mezcla. Cocina hasta que aparezcan burbujas en la superficie.\n5. Voltea el panqueque y cocina por el otro lado hasta que esté dorado. Sirve con miel o fruta.' 
+        },
+        { 
+          id: '910', 
+          titulo: 'Sopa de Tomate', 
+          ingredientes: ['tomates', 'cebolla', 'ajo', 'caldo de verduras', 'albahaca fresca'], 
+          preparacion: '1. Calienta aceite de oliva en una olla grande a fuego medio. Añade la cebolla y el ajo, y cocina hasta que estén blandos.\n2. Agrega los tomates y el caldo de verduras. Deja que hierva y luego reduce el fuego, cocinando a fuego lento durante 20 minutos.\n3. Usa una batidora de inmersión para triturar la sopa hasta que esté suave. Alternativamente, transfiere la sopa a una licuadora.\n4. Condimenta con sal, pimienta y albahaca fresca. Sirve caliente.' 
+        }
       ],
       receta: null
     };
+  },
+  computed: {
+    formattedPreparacion() {
+      // Replaces newline characters with HTML line breaks
+      return this.receta.preparacion.replace(/\n/g, '<br>');
+    }
   },
   created() {
     this.receta = this.recetas.find(r => r.id === this.id);
@@ -48,118 +72,121 @@ export default {
 
 <style scoped>
 .detalle-receta-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 40px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
 }
 
 .receta-card {
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.receta-header {
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 .receta-titulo {
-  font-size: 2.8rem;
-  color: #333;
-  text-align: center;
-  margin-bottom: 10px;
+  font-size: 3.5rem;
+  font-family: 'Playfair Display', serif;
+  color: #343a40;
+  margin-bottom: 5px;
 }
 
 .receta-id {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #6c757d;
-  text-align: center;
-  margin-bottom: 30px;
+  font-style: italic;
 }
 
 .receta-seccion {
-  margin-bottom: 30px;
-  border-top: 1px solid #e9ecef;
-  padding-top: 20px;
+  margin-top: 30px;
 }
 
 .seccion-titulo {
-  font-size: 1.8rem;
-  color: #555;
-  margin-bottom: 15px;
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  color: #e95420;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e95420;
+  padding-bottom: 5px;
+  display: inline-block;
 }
 
 .ingredientes-lista {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .ingredientes-lista li {
-  background-color: #f8f9fa;
-  border-left: 4px solid #e95420;
+  background-color: #fff3e0;
+  border-left: 5px solid #e95420;
+  padding: 12px 20px;
   margin-bottom: 10px;
-  padding: 12px 15px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
 }
 
 .preparacion-texto {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  line-height: 1.8;
   color: #495057;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .receta-no-encontrada {
   text-align: center;
   padding: 50px;
   color: #dc3545;
-  font-size: 1.2rem;
-  border: 1px dashed #dc3545;
+  font-size: 1.5rem;
+  border: 2px dashed #dc3545;
   border-radius: 8px;
   background-color: #fff3f4;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* ------------------------------------------- */
 /* Estilos responsivos */
 /* ------------------------------------------- */
 
-/* Para pantallas más pequeñas (smartphones) */
 @media (max-width: 768px) {
-  .detalle-receta-container {
-    padding: 15px;
-  }
-  
-  .receta-card {
-    padding: 20px;
-  }
-  
   .receta-titulo {
-    font-size: 2rem; /* Tamaño de fuente más pequeño para dispositivos móviles */
+    font-size: 2.5rem;
   }
-
+  
   .seccion-titulo {
-    font-size: 1.5rem; /* Tamaño de fuente más pequeño para títulos de sección */
+    font-size: 2rem;
   }
   
   .ingredientes-lista li,
   .preparacion-texto {
-    font-size: 1rem; /* Tamaño de fuente más pequeño para el texto del cuerpo */
+    font-size: 1.1rem;
   }
 }
 
-/* Para pantallas muy pequeñas (menos de 480px) */
 @media (max-width: 480px) {
   .receta-titulo {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
-
-  .receta-id {
-    font-size: 0.9rem;
-  }
-
+  
   .seccion-titulo {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
   }
   
   .receta-card {
-    padding: 15px;
+    padding: 20px;
   }
 }
 </style>
