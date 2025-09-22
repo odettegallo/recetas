@@ -8,5 +8,5 @@ import './assets/main.css';
 const app = createApp(App)
 
 app.use(router)
-app.use('bootstrap', bootstrap )
+app.provide('bootstrap', bootstrap )
 app.mount('#app')
