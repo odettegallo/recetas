@@ -1,22 +1,39 @@
 <template>
-  <nav class="navbar">
-    <router-link to="/">Recetas Caseras</router-link>
-    <router-link to="/">Inicio</router-link>
-    <router-link to="/categorias">Categorías</router-link>
-    <router-link to="/receta/123">Receta de Prueba</router-link>
-    <router-link to="/autor/Juan_Perez">Perfil de Autor</router-link>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <router-link to="/" class="navbar-brand">Recetas Caseras</router-link>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link to="/" class="nav-link">Inicio</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/categorias" class="nav-link">Categorías</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/receta/123" class="nav-link">Receta de Prueba</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/autor/Juan_Perez" class="nav-link">Perfil de Autor</router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
 </template>
 
-<style scoped>
-.navbar a {
-  margin-right: 15px;
-  text-decoration: none;
-  color: #333;
+<script>
+export default {
+  name: 'Navbar'
 }
-.navbar a.router-link-active {
+</script>
+
+<style scoped>
+.navbar-brand {
+  font-family: 'Georgia', serif;
   font-weight: bold;
-  color: #007bff;
 }
 </style>
-
