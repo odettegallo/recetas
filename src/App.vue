@@ -1,11 +1,32 @@
-<script setup></script>
-
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div id="app">
+    <Navbar />
+    <router-view v-slot="{ Component }">
+  <transition>
+    <component :is="Component" />
+  </transition>
+</router-view>
+  </div>
 </template>
 
-<style scoped></style>
+<script>
+
+import Navbar from './components/Navbar.vue';
+
+export default {
+  name: 'App',
+  components: {
+    Navbar
+  }
+};
+</script>
+
+<style>
+/* CSS para la transición */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+</style>
