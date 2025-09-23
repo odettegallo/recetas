@@ -33,26 +33,66 @@ export default {
   data() {
     return {
       recetas: [
-        { id: '123', 
-        titulo: 'Receta de Pastel Clásico', 
-        ingredientes: ['harina', 'azúcar', 'huevos'], 
-        preparacion: 'Mezclar todos los ingredientes secos, luego agregar los líquidos. Mezclar bien hasta obtener una masa homogénea. Hornear a 180°C por 30 minutos.' },
-
-        { id: '456', 
-        titulo: 'Receta de Ensalada', 
-        ingredientes: ['lechuga', 'tomate', 'pollo'], 
-        preparacion: 'Cocer el pollo en agua hirviendo, escurrir y reservar. Lavar la lechuga y los tomates bajo la llave con agua fría y reservar. Cortar la lechuga con la mano y los tomates en trozos. Unir todos los ingredientes cortados y sazonar a gusto.' },
-        { 
-          id: '678', 
-          titulo: 'Panqueques Clásicos', 
-          ingredientes: ['harina', 'azúcar', 'huevos', 'leche', 'mantequilla'], 
-          preparacion: '1. En un bol grande, mezcla la harina, el azúcar, el polvo de hornear y la sal.\n2. En otro bol, bate la leche, los huevos y la mantequilla derretida.\n3. Vierte la mezcla líquida sobre la de los ingredientes secos y mezcla hasta que estén combinados, sin batir en exceso.\n4. Calienta una sartén antiadherente a fuego medio y vierte un poco de la mezcla. Cocina hasta que aparezcan burbujas en la superficie.\n5. Voltea el panqueque y cocina por el otro lado hasta que esté dorado. Sirve con miel o fruta.' 
+        {
+          id: '123',
+          titulo: 'Receta de Pastel Clásico',
+          ingredientes: ['harina', 'azúcar', 'huevos'],
+          preparacion: 'Mezclar todos los ingredientes secos, luego agregar los líquidos. Mezclar bien hasta obtener una masa homogénea. Hornear a 180°C por 30 minutos.'
         },
-        { 
-          id: '910', 
-          titulo: 'Sopa de Tomate', 
-          ingredientes: ['tomates', 'cebolla', 'ajo', 'caldo de verduras', 'albahaca fresca'], 
-          preparacion: '1. Calienta aceite de oliva en una olla grande a fuego medio. Añade la cebolla y el ajo, y cocina hasta que estén blandos.\n2. Agrega los tomates y el caldo de verduras. Deja que hierva y luego reduce el fuego, cocinando a fuego lento durante 20 minutos.\n3. Usa una batidora de inmersión para triturar la sopa hasta que esté suave. Alternativamente, transfiere la sopa a una licuadora.\n4. Condimenta con sal, pimienta y albahaca fresca. Sirve caliente.' 
+
+        {
+          id: '456',
+          titulo: 'Receta de Ensalada',
+          ingredientes: ['lechuga', 'tomate', 'pollo'],
+          preparacion: 'Cocer el pollo en agua hirviendo, escurrir y reservar. Lavar la lechuga y los tomates bajo la llave con agua fría y reservar. Cortar la lechuga con la mano y los tomates en trozos. Unir todos los ingredientes cortados y sazonar a gusto.'
+        },
+        {
+          id: '678',
+          titulo: 'Panqueques Clásicos',
+          ingredientes: ['harina', 'azúcar', 'huevos', 'leche', 'mantequilla'],
+          preparacion: '1. En un bol grande, mezcla la harina, el azúcar, el polvo de hornear y la sal.\n2. En otro bol, bate la leche, los huevos y la mantequilla derretida.\n3. Vierte la mezcla líquida sobre la de los ingredientes secos y mezcla hasta que estén combinados, sin batir en exceso.\n4. Calienta una sartén antiadherente a fuego medio y vierte un poco de la mezcla. Cocina hasta que aparezcan burbujas en la superficie.\n5. Voltea el panqueque y cocina por el otro lado hasta que esté dorado. Sirve con miel o fruta.'
+        },
+        {
+          id: '910',
+          titulo: 'Sopa de Tomate',
+          ingredientes: ['tomates', 'cebolla', 'ajo', 'caldo de verduras', 'albahaca fresca'],
+          preparacion: '1. Calienta aceite de oliva en una olla grande a fuego medio. Añade la cebolla y el ajo, y cocina hasta que estén blandos.\n2. Agrega los tomates y el caldo de verduras. Deja que hierva y luego reduce el fuego, cocinando a fuego lento durante 20 minutos.\n3. Usa una batidora de inmersión para triturar la sopa hasta que esté suave. Alternativamente, transfiere la sopa a una licuadora.\n4. Condimenta con sal, pimienta y albahaca fresca. Sirve caliente.'
+        },
+        {
+          id: 'bebida-1',
+          titulo: 'Limonada Refrescante',
+          ingredientes: ['limones', 'agua', 'azúcar', 'hielo'],
+          preparacion: 'Exprimir los limones para obtener el jugo. Mezclar el jugo con agua y azúcar al gusto. Servir con hielo.'
+        },
+        {
+          id: 'bebida-2',
+          titulo: 'Batido de Frutas Tropicales',
+          ingredientes: ['mango', 'piña', 'plátano', 'yogur', 'hielo'],
+          preparacion: 'Cortar las frutas en trozos y colocarlas en una licuadora. Añadir yogur y hielo. Licuar hasta obtener una mezcla suave.'
+        },
+        {
+          id: 'bebida-3',
+          titulo: 'Té Helado de Durazno',
+          ingredientes: ['duraznos', 'agua', 'té', 'azúcar', 'hielo'],
+          preparacion: 'Hervir agua y preparar el té. Dejar enfriar. Cortar los duraznos en rodajas y añadirlos al té junto con azúcar al gusto. Servir con hielo.'
+        },
+        {
+          id: 'postre-1',
+          titulo: 'Tarta de Chocolate',
+          ingredientes: ['chocolate', 'harina', 'azúcar', 'huevos', 'mantequilla'],
+          preparacion: 'Derretir el chocolate y la mantequilla juntos. Mezclar con la harina, el azúcar y los huevos. Hornear a 180°C por 25 minutos.'
+        },
+        {
+          id: 'postre-2',
+          titulo: 'Brownies con Nuez',
+          ingredientes: ['chocolate', 'harina', 'azúcar', 'huevos', 'nueces'],
+          preparacion: 'Derretir el chocolate. Mezclar con harina, azúcar, huevos y nueces picadas. Hornear a 175°C por 20 minutos.'
+        },
+        {
+          id: 'postre-3',
+          titulo: 'Mousse de Limón',
+          ingredientes: ['limones', 'crema para batir', 'azúcar', 'gelatina'],
+          preparacion: 'Exprimir los limones para obtener el jugo. Batir la crema con azúcar hasta que forme picos suaves. Disolver la gelatina en agua caliente y mezclar con el jugo de limón. Incorporar la mezcla de limón a la crema batida y refrigerar por al menos 2 horas.'
         }
       ],
       receta: null
@@ -165,11 +205,11 @@ export default {
   .receta-titulo {
     font-size: 2.5rem;
   }
-  
+
   .seccion-titulo {
     font-size: 2rem;
   }
-  
+
   .ingredientes-lista li,
   .preparacion-texto {
     font-size: 1.1rem;
@@ -180,11 +220,11 @@ export default {
   .receta-titulo {
     font-size: 2rem;
   }
-  
+
   .seccion-titulo {
     font-size: 1.8rem;
   }
-  
+
   .receta-card {
     padding: 20px;
   }
